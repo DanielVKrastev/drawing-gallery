@@ -33,7 +33,7 @@
                     </figure>
                     <div class="block-4-text p-4">
                       <h3><a href="<?=ROOT?>/artshop/drawing?id=<?=$drawingArr[$i]['id']?>"><?=$drawingArr[$i]['name']?></a></h3>
-                      <p class="mb-0">Размери: <?=$drawingArr[$i]['size']?></p>
+                      <p class="mb-0">Размери: <?=$drawingArr[$i]['size']->size?></p>
                       <p class="text-primary font-weight-bold"><?=$drawingArr[$i]['price']?> лв.</p>
                     </div>
                   </div>

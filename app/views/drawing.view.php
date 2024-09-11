@@ -20,7 +20,9 @@
             <h2 class="text-black"><?=$drawing->name?></h2>
             <p><?=$drawing->description?></p>
 
-            <i><b>Размери: <?=$drawing->size?></b></i> 
+            <i><b>Размери: <?=$size->size?></b></i> 
+            <br>
+            <i><b>Категория: <?=$category->name_category?></b></i> 
             <br>
             <i><b>Бои: <?=$drawing->paints?></b></i> 
 

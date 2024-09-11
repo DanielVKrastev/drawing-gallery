@@ -41,7 +41,7 @@
           <?php     
                  $countRows = count($drawingArr);
                  for($i = 0; $i < $countRows; $i++){
-                     //show($drawingArr[$i]['name']);
+                   // show($drawingArr[$i]['size']['size']); echo $drawingArr[$i]['size']->size;
                      ?>
                 <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                   <div class="block-4 text-center border">
@@ -50,28 +50,13 @@
                     </figure>
                     <div class="block-4-text p-4">
                       <h3><a href="<?=ROOT?>/artshop/drawing"><?=$drawingArr[$i]['name']?></a></h3>
-                      <p class="mb-0">Размери: <?=$drawingArr[$i]['size']?></p>
+                      <p class="mb-0">Размери: <?=$drawingArr[$i]['size']->size;?></p>
                       <p class="text-primary font-weight-bold"><?=$drawingArr[$i]['price']?> лв.</p>
                     </div>
                   </div>
                 </div>
             <?php } ?>
-
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="<?=ROOT?>/artshop/drawing"><img src="<?=ROOT?>/assets/images/test_draw.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="<?=ROOT?>/artshop/drawing">Брезова гора test</a></h3>
-                    <p class="mb-0">Размери: 25см / 34см</p>
-                    <p class="text-primary font-weight-bold">100 лв.</p>
-                  </div>
-                </div>
-              </div>
               
-
-
             </div>
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
@@ -94,9 +79,13 @@
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Категории</h3>
               <ul class="list-unstyled mb-0">
-                <li class="mb-1"><a href="#" class="d-flex"><span>Портрети</span> <span class="text-black ml-auto">(2,220)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Пейзажи</span> <span class="text-black ml-auto">(2,550)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Абстрактни картини</span> <span class="text-black ml-auto">(2,124)</span></a></li>
+                <?php
+                  foreach($categories as $category){
+                    ?>
+                      <li class="mb-1"><a href="<?=ROOT?>/artshop?category=<?=$category->id?>" class="d-flex"><span><?=$category->name_category?></span> <span class="text-black ml-auto">(0)</span></a></li>
+                    <?php
+                  }
+                ?>
               </ul>
             </div>
 
@@ -109,15 +98,15 @@
 
               <div class="mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Размери</h3>
-                <label for="s_sm" class="d-flex">
-                  <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Малка (19)</span>
-                </label>
-                <label for="s_md" class="d-flex">
-                  <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Средна (4)</span>
-                </label>
-                <label for="s_lg" class="d-flex">
-                  <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Голяма (1)</span>
-                </label>
+                <?php 
+                  foreach($sizes as $size){
+                    ?>
+                    <label for="s_sm" class="d-flex">
+                      <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black"><?=$size->size?> (0)</span>
+                    </label>
+                    <?php
+                  }
+                ?>
               </div>
 
             </div>
